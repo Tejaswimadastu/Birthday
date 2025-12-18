@@ -1,0 +1,128 @@
+import streamlit as st
+import streamlit.components.v1 as components
+
+st.set_page_config(page_title="Birthday Card", layout="centered")
+
+html_code = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Birthday Wishes</title>
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+    font-family:'Segoe UI',sans-serif;
+}
+.card{
+    background:#fff;
+    width:380px;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+h1{color:#ff4d6d;}
+p{color:#555;font-size:15px;line-height:1.6;}
+
+.images{
+    display:flex;
+    justify-content:space-between;
+    margin:15px 0;
+}
+.images img{
+    width:110px;
+    height:110px;
+    object-fit:cover;
+    border-radius:12px;
+    border:3px solid #ffccd5;
+}
+
+.cake{
+    margin:20px auto;
+    width:120px;
+    position:relative;
+}
+.layer{
+    height:25px;
+    background:#ffb703;
+    border-radius:6px;
+    margin-bottom:5px;
+}
+.layer:nth-child(2){background:#fb8500;}
+.layer:nth-child(3){background:#ffb703;}
+.candle{
+    width:6px;
+    height:30px;
+    background:#ff4d6d;
+    position:absolute;
+    top:-30px;
+    left:50%;
+    transform:translateX(-50%);
+}
+.flame{
+    width:12px;
+    height:12px;
+    background:orange;
+    border-radius:50%;
+    position:absolute;
+    top:-12px;
+    left:50%;
+    transform:translateX(-50%);
+    animation:flicker 0.8s infinite;
+}
+@keyframes flicker{
+    0%{transform:translateX(-50%) scale(1);}
+    50%{transform:translateX(-50%) scale(1.2);}
+    100%{transform:translateX(-50%) scale(1);}
+}
+.footer{
+    margin-top:15px;
+    color:#ff4d6d;
+    font-weight:600;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Happy Birthday 🎉</h1>
+
+    <div class="images">
+        <img src="img1.jpg">
+        <img src="img2.jpg">
+        <img src="img3.jpg">
+    </div>
+
+    <p>
+        As this beautiful day comes to an end,  
+        I just want you to know how special you are 💖  
+        May your life be filled with love and happiness.
+    </p>
+
+    <div class="cake">
+        <div class="candle">
+            <div class="flame"></div>
+        </div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+    </div>
+
+    <p>
+        Today may end, but my wishes for you never will ✨
+    </p>
+
+    <div class="footer">With lots of love 🤍</div>
+</div>
+
+</body>
+</html>
+"""
+
+components.html(html_code, height=700)
